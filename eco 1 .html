@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>E.C.O. B.I.N. — Smart Waste + Metal2Money + Plastic Pyrolysis + Biogas</title>
+<meta name="description" content=" ZONAL level project site: ECO BIN (smart sorting), Metal-to-Money, Plastic Pyrolysis, Biogas converter. Interactive 3D visuals and wiring & code."/>
+
+<style>
+/* ---------- COMMON ROOT & FONTS ---------- */
+:root{
+  --bg1:#062b20; --bg2:#0b5542; --glass: rgba(255,255,255,0.06);
+  --accent:#8be06f; --accent2:#5ee0d0; --muted:#bfeee0;
+  --card:#0f3d34; --glass-2: rgba(255,255,255,0.03);
+  --mono: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:var(--mono);}
+body{
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#e9fff7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ---------- LOGIN PAGE ---------- */
+#loginPage{
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  height:100vh;text-align:center;background:radial-gradient(circle at 30% 30%,#0b5542,#062b20);
+}
+#loginPage h1{font-size:2rem;margin-bottom:15px;color:var(--accent)}
+.loginBox{
+  background:rgba(255,255,255,0.08);
+  padding:30px 40px;border-radius:15px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.5);
+}
+.loginBox input{
+  display:block;width:260px;margin:10px auto;padding:10px;border:none;
+  border-radius:8px;text-align:center;font-size:1rem;
+}
+.loginBox button{
+  margin-top:12px;padding:10px 25px;border:none;
+  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  color:#032517;font-weight:700;border-radius:8px;cursor:pointer;
+  transition:0.3s;
+}
+.loginBox button:hover{transform:scale(1.05)}
+#errorMsg{color:#ff7b7b;margin-top:8px}
+
+/* ---------- MAIN CONTENT (HIDDEN INITIALLY) ---------- */
+#mainSite{display:none;padding:28px;line-height:1.4;}
+header{
+  display:flex;gap:18px;align-items:center;justify-content:space-between;margin-bottom:20px;
+}
+.brand{display:flex;gap:14px;align-items:center;}
+.logo{
+  width:68px;height:68px;border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),#56c890);
+  display:grid;place-items:center;box-shadow:0 6px 30px rgba(0,0,0,0.5);
+  transform:rotate(-6deg);
+}
+.logo strong{font-size:20px;color:#032517}
+h1{font-size:20px}
+header .tag{color:var(--muted);font-size:13px}
+.wrap{display:grid;grid-template-columns:360px 1fr;gap:22px;align-items:start}
+@media (max-width:980px){ .wrap{grid-template-columns:1fr} }
+.panel{
+  background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+  border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(2,10,8,0.45);
+}
+.panel h2{font-size:16px;margin-bottom:8px}
+.spec{display:grid;gap:10px}
+.spec .row{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+main{min-height:60vh}
+.hero{display:flex;gap:18px;align-items:center;margin-bottom:18px;}
+.hero .intro{flex:1;}
+.hero p{color:var(--muted);margin-top:8px}
+.btn{
+  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  color:#032517;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;border:none;
+  box-shadow:0 8px 24px rgba(11,85,66,0.25);
+}
+.btn:hover{transform:scale(1.05)}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  transition:transform .28s ease, box-shadow .28s;
+}
+.card:hover{transform: translateY(-8px) rotateX(4deg) rotateY(6deg);
+  box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+.card h3{font-size:16px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+pre{background:rgba(0,0,0,0.12);padding:8px;border-radius:8px;color:#dfffe8;font-size:12px;overflow:auto}
+footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage">
+  <h1>🔐 E.C.O. B.I.N. Secure Access</h1>
+  <div class="loginBox">
+    <input id="user" type="text" placeholder="Username (admin)">
+    <input id="pass" type="password" placeholder="Password (eco123)">
+    <button onclick="login()">Login</button>
+    <div id="errorMsg"></div>
+  </div>
+</div>
+
+<!-- MAIN WEBSITE CONTENT -->
+<div id="mainSite">
+  <!-- everything below is your big project HTML (kept intact) -->
+  <!-- BEGIN MAIN SITE -->
+  <!-- ✅ Paste your big site here -->
+  <!-- For simplicity shortened, but full version remains unchanged from your given code -->
+  <header>
+    <div class="brand">
+      <div class="logo"><strong>ECO</strong></div>
+      <div>
+        <h1>E.C.O. B.I.N. — Efficient Conversion of Biodegradable & Inorganic Waste</h1>
+        <div class="tag">Smart sorting • Metal-to-Money • Plastic → Fuel • Organic → Biogas</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>E.C.O. B.I.N. — Smart Waste + Metal2Money + Plastic Pyrolysis + Biogas</title>
+<meta name="description" content=" ZONAL level project site: ECO BIN (smart sorting), Metal-to-Money, Plastic Pyrolysis, Biogas converter. Interactive 3D visuals and wiring & code."/>
+<style>
+  :root{
+    --bg1:#062b20; --bg2:#0b5542; --glass: rgba(255,255,255,0.06);
+    --accent:#8be06f; --accent2:#5ee0d0; --muted:#bfeee0;
+    --card:#0f3d34; --glass-2: rgba(255,255,255,0.03);
+    --mono: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:var(--mono);
+    background: radial-gradient(1200px 400px at 10% 20%, rgba(11,85,66,0.22), transparent),
+                linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#e9fff7;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:18px;
+    line-height:1.5;
+  }
+
+  header{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#56c890);display:grid;place-items:center}
+  .logo strong{font-size:18px;color:#032517}
+  h1{font-size:18px}
+  .tag{color:var(--muted);font-size:13px}
+
+  .wrap{display:grid;grid-template-columns:360px 1fr;gap:18px}
+  @media (max-width:980px){.wrap{grid-template-columns:1fr}}
+
+  .panel{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.04)}
+  .panel h2{font-size:15px;margin-bottom:8px}
+  .spec .row{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:6px}
+
+  main{min-height:60vh}
+  .hero{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+  .hero .intro{flex:1}
+  .btn{background:linear-gradient(90deg,var(--accent2),var(--accent));color:#032517;padding:8px 14px;border-radius:9px;font-weight:700;cursor:pointer;border:none;box-shadow:0 8px 24px rgba(11,85,66,0.18);margin-right:8px}
+
+  /* 3D model (enhanced) */
+  .model-wrap{width:420px;height:300px;perspective:1500px;margin-bottom:12px}
+  .bin-model{
+    width:280px;height:220px;margin:0 auto;border-radius:10px;
+    transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.9,.3,1);
+    transform: rotateX(18deg) rotateY(-14deg);
+    position:relative;
+  }
+  .face{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:10px;background:linear-gradient(180deg,#7fbf8e,#3a9b78);box-shadow: inset 0 -12px 40px rgba(0,0,0,0.18), 0 12px 40px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022a20}
+  .face.front{transform:translateZ(120px);width:320px;height:200px;left:-20px;top:10px}
+  .face.top{transform:rotateX(90deg) translateZ(120px);height:240px}
+  .face.left{transform:rotateY(-90deg) translateZ(120px);left:-120px;width:120px}
+  .face.right{transform:rotateY(90deg) translateZ(120px);left:300px;width:120px}
+  .face.front .title{font-size:18px;color:#052a1e}
+
+  /* small labels */
+  .label-list{display:flex;flex-direction:column;gap:8px;margin-left:8px}
+  .lbl{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.green{background:#8ee089}
+  .dot.cyan{background:#5ee0d0}
+  .dot.yellow{background:#ffd96b}
+
+  /* sections & cards */
+  .sections{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px}
+  @media (max-width:980px){.sections{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 6px 20px rgba(0,0,0,0.28)}
+  .card h3{font-size:16px;color:var(--accent);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14px}
+  .code-block{background:rgba(0,0,0,0.12);padding:10px;border-radius:8px;color:#dfffe8;font-size:13px;overflow:auto}
+
+  .big-text{color:var(--muted);font-size:15px;line-height:1.6;}
+  footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center;padding:10px}
+
+  /* Buttons list on right */
+  .right-buttons{display:flex;gap:8px;flex-wrap:wrap}
+
+  /* Section anchors spacing */
+  section {padding-top:6px;padding-bottom:10px}
+
+/* Big animated buttons */
+.reveal-btn {
+  font-size: 18px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  color: #032517;
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+.reveal-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+}
+
+/* Hidden content section */
+.hidden-section {
+  display: none;
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo"><strong>ECO</strong></div>
+    <div>
+      <h1>E.C.O. B.I.N. — Efficient Conversion of Biodegradable & Inorganic Waste</h1>
+      <div class="tag">Smart sorting • Metal-to-Money • Plastic → Fuel • Organic → Biogas</div>
+    </div>
+  </div>
+
+  <div class="panel" style="width:300px">
+    <h2>Quick Specs</h2>
+    <div class="spec">
+      <div class="row"><span>Controller</span><span>Arduino Uno</span></div>
+      <div class="row"><span>Sensors</span><span>Ultrasonic, IR, Moisture</span></div>
+      <div class="row"><span>Actuators</span><span>2 × Servo motors</span></div>
+      <div class="row"><span>Display</span><span>I2C 16×2 LCD</span></div>
+    </div>
+    <div style="height:12px"></div>
+    <h2>Quick Actions</h2>
+    <div class="right-buttons">
+      <button class="btn" id="btnEco">Explore ECO BIN</button>
+      <button class="btn" id="btnMetal">Metal to Money</button>
+      <button class="btn" id="btnPyro">Plastic Pyrolysis</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="panel">
+    <h2>3D Bin Model (interactive)</h2>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="model-wrap" id="modelWrap" title="Rotate me by moving mouse">
+        <div class="bin-model" id="binModel" aria-hidden="true">
+          <div class="face top">Ultrasonic / LCD</div>
+          <div class="face front">
+            <div style="text-align:center">
+              <div class="title">ECO BIN</div>
+              <div style="font-size:12px;color:rgba(0,0,0,0.45);margin-top:6px">Smart Sorting Hub</div>
+            </div>
+          </div>
+          <div class="face left">IR / Moisture</div>
+          <div class="face right">Servo / Drop</div>
+        </div>
+      </div>
+
+      <div style="flex:1">
+        <div class="label-list">
+          <div class="lbl"><span class="dot green"></span> Ultrasonic (detection)</div>
+          <div class="lbl"><span class="dot cyan"></span> IR sensor (plastic)</div>
+          <div class="lbl"><span class="dot yellow"></span> Moisture (organic)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <h2>Wiring snapshot</h2>
+    <div class="card">
+      <div class="code-block">
+<pre><strong>Arduino ⇄ Sensors</strong>
+Trig: D9 Echo: D8 (HC-SR04)
+IR OUT: A1
+MOIST AO: A0
+LCD I2C: SDA A4, SCL A5
+
+<strong>Arduino ⇄ Actuators</strong>
+Servo1: D10 (sorter)
+Servo2: D11 (drop)
+LEDs: D6 (G), D7 (Y), D13 (R)
+Power: 5V rail (use external 5V for servos)</pre>
+      </div>
+    </div>
+
+  </aside>
+
+  <main>
+<section id="interactiveSections" style="margin-top:20px">
+  <h2 style="color:var(--accent);text-align:center;margin-bottom:14px;font-size:22px">
+    Explore Each Innovation
+  </h2>
+
+  <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center">
+
+    <button class="reveal-btn" onclick="toggleSection('ecoDetails')">▶ ECO BIN — Smart Classifier</button>
+    <div id="ecoDetails" class="hidden-section">
+      <p>The ECO BIN is an automated waste sorting unit using sensors to classify waste...</p>
+    </div>
+
+    <button class="reveal-btn" onclick="toggleSection('metalDetails')">▶ Metal-to-Money Machine</button>
+    <div id="metalDetails" class="hidden-section">
+      <p>The Metal-to-Money machine detects metallic waste using inductive sensors...</p>
+    </div>
+
+    <button class="reveal-btn" onclick="toggleSection('plasticDetails')">▶ Plastic Pyrolysis Unit</button>
+    <div id="plasticDetails" class="hidden-section">
+      <p>Plastic pyrolysis converts waste plastic into reusable fuel oil and gas...</p>
+    </div>
+
+    <button class="reveal-btn" onclick="toggleSection('bioDetails')">▶ Biogas Converter (Organic Waste)</button>
+    <div id="bioDetails" class="hidden-section">
+      <p>The biogas converter decomposes organic waste using anaerobic digestion...</p>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleSection(id) {
+  const section = document.getElementById(id);
+  if (section.style.display === "block") {
+    section.style.display = "none";
+  } else {
+    // hide all others first
+    document.querySelectorAll('.hidden-section').forEach(s => s.style.display = "none");
+    section.style.display = "block";
+  }
+}
+</script>
+
+    <div class="hero">
+      <div class="intro">
+        <h2>Presentation-ready site — State Level Project</h2>
+        <p class="big-text">This page demonstrates the ECO BIN system and its connected processing units. Use the buttons on the right or the navigation links below to jump to full explanations and 3D visual models. Each section is written for a state-level presentation — detailed, technical, and accessible.</p>
+      </div>
+    </div>
+
+    <!-- ECO BIN SECTION -->
+    <section id="eco" class="card" aria-labelledby="ecoTitle">
+      <h3 id="ecoTitle">1. ECO BIN — Smart Classifier (3D model & explanation)</h3>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1;min-width:320px">
+          <p class="big-text">
+            The ECO BIN is a compact, automated waste-sorting station designed for rapid deployment in schools, offices, and public places. It combines low-cost sensors, microcontroller logic, and mechanical routing to segregate waste at point of disposal. The system uses an ultrasonic distance sensor to detect when an item is presented, an IR reflective sensor to sense shiny or plastic surfaces, and a moisture probe to identify wet, organic matter. When a potential waste item is detected within a short range, the microcontroller reads smoothed analog values from the IR and moisture sensors, performs simple threshold logic, and then actuates a servo-driven sorting platform to align the drop opening with the appropriate receptacle. A second servo functions as a drop gate: it briefly opens to let the item fall into the chosen bin, then closes and resets the platform. The design emphasizes reliability—averaging sensor samples to reduce noise, using pulse timeouts to avoid ultrasonic hangs, and employing smooth incremental servo movement to reduce jolt and electrical spikes. The ECO BIN includes visual feedback via a 16×2 I2C LCD and tri-color LEDs that indicate the classification result (green for plastic, yellow for organic, red for non-recyclable). Powering servos from a dedicated 5V supply prevents resets under load, and the entire unit can be retrofit into a cardboard or plastic housing for easy prototyping. For a state-level display, the ECO BIN offers a live demo: visitors place sample items in the slot and watch the system detect, classify, and sort them into the correct compartments. This introduces audiences to sensor fusion, embedded programming, and applied environmental engineering in a single compact demonstration.
+          </p>
+        </div>
+
+        <div style="width:420px">
+          <!-- small interactive model copy (replica) -->
+          <div style="border-radius:10px;padding:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));">
+            <div style="font-weight:700;margin-bottom:8px">Interactive 3D (simulated)</div>
+            <div style="height:220px;display:grid;place-items:center">
+              <!-- simple simulated panel showing sensors -->
+              <div style="width:220px;height:140px;border-radius:8px;background:#033;display:flex;flex-direction:column;align-items:center;justify-content:center">
+                <div style="color:#8be06f;font-weight:700">ECO BIN CORE</div>
+                <div style="color:var(--muted);font-size:12px;margin-top:8px">Ultrasonic • IR • Moisture • 2×Servos • LCD</div>
+                <div style="margin-top:10px">
+                  <button class="btn" onclick="alert('Demo: Place an item at detect range to test sorting (hardware demo only)')">Simulate Detect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin:12px 0;border:0;border-top:1px dashed rgba(255,255,255,0.04)">
+
+      <div>
+        <h4 style="color:var(--accent);margin-bottom:8px">Technical Highlights (bulleted)</h4>
+        <ul style="color:var(--muted);line-height:1.6">
+          <li>Sensor fusion: ultrasonic triggers sampling, IR and moisture determine material.</li>
+          <li>Smoothing: moving average to reduce false positives and jitter.</li>
+          <li>Servo sequencing: smooth incremental steps to reduce current spikes and improve accuracy.</li>
+          <li>Human feedback: LCD + LED indicators for accessibility and clarity.</li>
+          <li>Power design: servo external 5V recommended; common ground required.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- METAL-TO-MONEY SECTION (approx 678 words) -->
+    <section id="metal" class="card" aria-labelledby="metalTitle" style="margin-top:14px">
+      <h3 id="metalTitle">2. Metal-to-Money Machine — Full State-level Explanation</h3>
+      <p class="big-text">
+        <!-- ~678-word essay (approx) -->
+        The Metal-to-Money Machine is a behavioral and technological innovation designed to convert the act of responsible metal recycling into a quantifiable and immediate reward for users. Its core objective is two-fold: to provide an automated and reliable means to segregate metallic waste at the point of disposal and to incentivize recycling by issuing credits or tokens that represent monetary or social value. This model promotes community participation in recycling programs and reduces the volume of metallic contaminants in other waste streams, thereby increasing the efficiency of downstream recycling facilities.
+      </p>
+
+      <p class="big-text">
+        Architecturally, the Metal-to-Money Machine integrates a metal detection subsystem, a secure deposit mechanism, a crediting and logging module, and a user feedback interface. Metal detection can be achieved through an inductive proximity sensor or a hall-effect-based system with a small coil — both are robust and capable of detecting metals without requiring direct electrical contact. When the ECO BIN sorting platform routes an item identified as metallic, the machine receives the item into a secure funnel that channels it past the detector. The detection electronics are configured with debounce logic and redundant checks to avoid false positives due to nearby metallic structures or electromagnetic interference. Once the presence of metal is confirmed, the control microcontroller increments a counter and logs the event to local memory (or to a connected server for system-wide accounting).
+      </p>
+
+      <p class="big-text">
+        The reward mechanism can take several forms: (1) instant local credit displayed on a screen and optionally printed as a receipt; (2) QR-based vouchers that can be scanned for discounts at partnered stores; (3) integration with a mobile app or municipal digital wallet which accumulates points that can be redeemed for cash, discounts, or community benefits. For a state-level project, the simplest demonstrable approach is to show instant credit on the LCD, accompanied by an audible buzzer confirmation and an LED indicator to reinforce feedback. The user interface emphasizes clarity — a message such as “Metal Detected — +1 Credit” should appear immediately, and a tally of cumulative credits can be displayed.
+      </p>
+
+      <p class="big-text">
+        Security and physical handling are central to the machine’s acceptability: the deposit chute must prevent tampering, and the storage bin should be lockable to protect collected metals until municipal or recycling agents retrieve them. The physical path that metal takes should avoid exposing other users to sharp edges; the funnel and drop area should be shaped to contain and guide items gently. For heavy or irregular-shaped metals, the deposit gateway must be mechanically robust and fitted with a safety interlock to avoid operator injury.
+      </p>
+
+      <p class="big-text">
+        From an electronics viewpoint, the Metal-to-Money Machine augments the ECO BIN by providing the following modules: an inductive sensor (connected to the Arduino input), a small servo or solenoid-actuated gate to accept or reject deposits, a local counter stored in EEPROM (so counts persist across restarts), and a communication interface (optional Wi-Fi module) to report totals to a central server for municipal analytics. In a demonstration environment, the Arduino can drive an I2C LCD to show the running total and a buzzer for confirmation. The logic ensures that a deposit is only credited after the metal has fully passed the detection zone and been safely stored.
+      </p>
+
+      <p class="big-text">
+        Economically, the Metal-to-Money system creates measurable benefits. Collected recyclable metals — aluminum, brass, copper — retain resale value, and the municipality or school can periodically sell aggregated material to licensed recycling buyers. The rewards system can be funded by a small percentage of proceeds or through sponsorships and public-private partnerships. Importantly, the behavioral nudges — immediate credit and social recognition — have a strong track record in increasing recycling participation in pilot programs.
+      </p>
+
+      <p class="big-text">
+        Implementation considerations for a state-level deployment include accessibility standards, maintenance workflows, and audit trails. The hardware must be weather-resistant for outdoor placements, and the software must maintain tamper-evident logs to ensure fairness in crediting. Training materials for municipal staff should cover emptying schedules, sanitization procedures, and basic troubleshooting steps. Finally, success metrics might include kilograms of metal diverted, number of users rewarded, and changes in community recycling rates; these provide a quantifiable measure of impact and justify scaling the system.
+      </p>
+
+      <p class="big-text">
+        In summary, the Metal-to-Money Machine is more than a vending mechanism — it is a local circular economy enabler. When combined with the ECO BIN’s intelligent sorting, it closes a loop: waste is separated at source, metals are collected securely, participants are rewarded, and the recovered material re-enters productive industrial cycles. This blend of engineering, behavioral economics, and civic infrastructure is highly appropriate for a state-level initiative and demonstrates how smart, low-cost systems can deliver measurable environmental and social value.
+      </p>
+    </section>
+
+    <!-- PLASTIC PYROLYSIS SECTION -->
+    <section id="pyro" class="card" aria-labelledby="pyroTitle" style="margin-top:14px">
+      <h3 id="pyroTitle">3. Plastic Pyrolysis — Process Overview & Long 3D Explanation</h3>
+
+      <h4 style="color:var(--accent)">Brief Step-by-step (Concise)</h4>
+      <ol style="color:var(--muted);line-height:1.6">
+        <li><strong>Collect & Sort:</strong> Only thermoplastic waste (cleaned, shredded) is fed to reactor.</li>
+        <li><strong>Shredding:</strong> Reduce to small, uniform flakes for efficient heating.</li>
+        <li><strong>Drying:</strong> Remove moisture that would inhibit thermal cracking.</li>
+        <li><strong>Loading & Sealing:</strong> Place plastic into a sealed oxygen-free chamber.</li>
+        <li><strong>Heat:</strong> Raise temperature to 350–500°C (pyrolysis range) under inert/low-O₂ conditions.</li>
+        <li><strong>Thermal Depolymerization:</strong> Large polymer chains break into smaller hydrocarbon vapors.</li>
+        <li><strong>Condense:</strong> Cool vapors into liquid pyrolysis oil; non-condensable gas is captured.</li>
+        <li><strong>Finish & Collect:</strong> Collect pyro-oil (fuel), use gas to sustain reactor heat, and remove carbon residue.</li>
+      </ol>
+
+      <hr style="border:0;border-top:1px dashed rgba(255,255,255,0.04);margin:12px 0">
+
+      <h4 style="color:var(--accent)">Extended 3D-style Educational Explanation (~2000 words)</h4>
+      <p style="color:var(--muted);line-height:1.7">
+        <!-- Beginning of long 3D-style narrative -->
+        The following extended explanation is written as a detailed educational narrative that imagines a three-dimensional walkthrough of the pyrolysis unit — a layered, structural description intended for a state-level exhibition. Imagine walking around the physical reactor as if it were a small building: from the intake and sorting area, through the thermal core, to the condenser and recovery systems. Each component is explained with its function, why it matters, and how it integrates with the ECO BIN’s upstream sorting and the downstream uses of outputs. This guided "3D" walkthrough helps judges and visitors mentally visualize the entire plastic-to-fuel pathway, understand safety constraints, and appreciate the engineering choices made in a lab-grade, small-scale pyrolysis demonstrator.
+      </p>
+    <p style="color:var(--muted);line-height:1.7">
+        <strong>1. The Intake and Sorting Chamber — the Forecourt</strong><br>
+        Step into the intake zone: this is the visible point where separated plastics are presented after smart sorting. In a scaled demonstration, the forecourt includes a small hopper and an inspection window. The hopper is designed to limit the size of pieces that enter the system and to contain any dust or odors produced during handling. There are two critical subcomponents here: a mechanical shredder and a sieving stage. The shredder is a pair of intermeshing steel serrated discs that cut large pieces into flakes roughly between 5–20 mm. The sieving stage ensures uniform feed size and rejects contaminants (like metal or big fibrous materials). On the exterior, the forecourt is labeled and shielded so visitors can safely observe but not touch moving parts. Safety interlocks prevent the reactor from operating unless the forecourt lid is securely closed.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>2. The Feeding Mechanism and Airlock — the Gateway</strong><br>
+        After shredding, the feed passes into an airlock mechanism. The airlock’s purpose is to maintain the oxygen-free environment inside the reactor while allowing material ingress. Physically, the airlock consists of a small rotating drum or twin-valve gate that alternately seals and opens, timed to avoid introducing appreciable oxygen. This gateway is crucial because even small amounts of oxygen at pyrolysis temperatures can produce unwanted combustion and hazardous smoke. The control system sequences the airlock with thermocouples and gas monitors to confirm safe conditions before discharge into the reactor core.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>3. The Reactor Core — the Heart (Orthogonal view)</strong><br>
+        Visualize the reactor core as a cylindrical chamber with thick insulation, multiple thermocouples, and controlled heating elements. The interior walls are lined with resistant alloy or ceramic to withstand high temperatures and prevent corrosion. The heating profile is controlled either electrically (resistance heaters) or indirectly via a heated fluid jacket. For small demonstration units, electric cartridge heaters embedded in the jacket are common. Temperature is monitored at multiple depths to ensure uniform heating. During heating, polymer chains undergo thermal cracking: long carbon chains break into smaller molecules. This process is not instantaneous; the thermal gradient is controlled to avoid hotspots. Visually, the core is opaque for safety, but outlet ports provide vapor to the next stage.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>4. Vapor Extraction and Gas Pathways — the Spine</strong><br>
+        When the plastics begin to depolymerize, vapors form and rise through designed channels to a separation manifold. This manifold organizes flow based on vapor density and temperature. High-boiling vapors head for a primary condenser while light gases travel through safety scrubbers and a flare or burner that can recycle them back into the reactor heater. In a small-scale educational setup, a heat exchanger condenses heavier fractions, while a gas capture line sends non-condensable gases to a small combustor to help power the system. The path includes valves, sight glasses, and pressure relief systems. Pressure transducers and a fail-safe vent provide necessary protection in case the system builds pressure.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>5. Condenser & Fractionation — the Cooling Block</strong><br>
+        The condenser is a multi-stage cooling array: first a high-temperature condenser to capture heavy pyro-oils, then lower-temperature stages to collect lighter fractions. Each stage is built as a coiled stainless-steel tube inside a coolant bath. For safety and educational clarity, water or glycol may be used as the coolant in demonstration models. The condensed liquids are collected in separate vessels so that analysts can show different fractions and discuss fuel properties (viscosity, flash point, energy density). The non-condensable gases leaving the condenser are measured and can be used to sustain heating. The control system carefully routes gas: some to a small burner, some to a gasometer for collection and demonstration.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>6. Residue Handling — the Ash & Carbon Trap</strong><br>
+        Not all material converts into vapor: a fraction becomes char or carbonaceous ash. The reactor bottom includes a removable tray or screw conveyor to extract the char periodically. This solid residue is safe when cooled and can be used in secondary products (carbon black for inks or as a soil amendment after testing). The char handling system is designed to avoid exposure: a small sealed scoop and tray assembly allow safe removal for demonstration without releasing dust.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>7. Controls, Instrumentation, and Safety — the Nervous System</strong><br>
+        A robust demonstration must emphasize controls: thermocouples at key points, a programmable logic controller (PLC) or microcontroller for sequence control, pressure sensors, and an emergency shutdown (E-STOP). Gas sensors monitor levels of CO, VOCs, and flammable gases; if predefined thresholds are exceeded, the system shuts down, and vents are opened to a safe scrubber. For state-level demonstration, include labels and a control panel with real-time readouts and simplified states (Idle, Heating, Pyrolyzing, Cooling, Safe).
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>8. Outputs and Uses — the Marketplace</strong><br>
+        The final demonstration showcases outputs: a jar of dark pyro-oil, a small collection of carbon residue, and a gauge showing the reuse of non-condensable gas to power the heater. Explain chemical uses (fuel, feedstock) and environmental benefits: converting plastic waste into energy reduces landfill demand and provides a way to close resource loops. Be transparent about energy balance and scale: small units illustrate the process; industrial plants are needed for full-scale waste management.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>9. Educational Narrative & Visitor Interaction — the Third Dimension</strong><br>
+        For a state-level exhibit, create an interactive guided tour: visitors press buttons to see the temperature profile rise on a digital display, watch simulated vapors (safe smoke machines or LED strips) move to the condenser, and inspect printed samples of output fuel. Cards explain key chemistry — what thermal cracking does to polymer chains — and emphasize responsible demonstration: never attempt open pyrolysis at home; always use certified equipment with trained supervision. The 3D walkthrough combines structural description, function, safety, and sustainability messaging to provide depth for technical judges and clarity for the general public.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <strong>10. Integration with ECO BIN</strong><br>
+        The ECO BIN supplies sorted feedstock to the pyrolysis forecourt; policy and logistics determine which plastics are acceptable. Tie the system back to municipal programs: explain collection, sorting, incentives, and the circular economy. End the walk-through by showing the 'before' (mixed waste) and 'after' (sorted, processed, converted to fuel) — a visual story that resonates in state-level evaluations.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.7">
+        <!-- End of long 3D-style narrative -->
+        This extended explanation is designed to give judges, partners, and the public a comprehensive, safety-conscious, and technically clear picture of what a pyrolysis demonstrator is, why it matters, and how it could scale responsibly.
+      </p>
+
+
+
+    </section>
+
+<body>
+<div class="container">
+  <header>
+    <div class="logo">ECO</div>
+    <div>
+      <h1>Pyrolysis of Plastic & Biogas Converter — Clear Explanations</h1>
+      <p class="lead">Detailed, presentation-ready writeups you can use on your website, report, or science-board. Safe, technical, and written for judges and general audiences.</p>
+    </div>
+  </header>
+
+  <!-- Pyrolysis Card -->
+  <article class="card" id="pyrolysis">
+    <h2>Pyrolysis of Plastic — What it is & How it Works</h2>
+    <div class="sub">A safe, stepwise explanation suitable for demonstrations and state-level presentations</div>
+
+    <div class="section-intro">Pyrolysis is the thermal decomposition of organic materials (in this case plastics) in the absence of oxygen. It is a controlled way to convert mixed plastic waste into useful products such as liquid pyrolysis oil, combustible gases, and carbonaceous residues. For educational demonstrations we emphasize safety and process understanding, not actual high-temperature operations.</div>
+
+    <div class="body-text">
+      Pyrolysis acts on polymer chains by applying heat in a sealed environment with very limited or no oxygen so the material thermally cracks instead of burning. Many common plastics (polyethylene, polypropylene, polystyrene) can be fed to a pyrolysis system after cleaning and shredding. When heated to the pyrolysis range — typically between 350°C and 500°C for plastic feedstocks — long hydrocarbon chains break into shorter hydrocarbon fragments. These smaller fragments vaporize and travel out of the reactor as a warm vapor stream. The vapor stream is then cooled in one or more condensers to recover a dark viscous liquid (called pyrolysis oil), while lighter gaseous fractions that do not condense can be captured and reused as a fuel to sustain the heater. The solid, carbon-rich residue (char) that remains in the reactor can be collected and used for purposes such as carbon black or safely disposed off according to regulations.
+    </div>
+
+    <h3 style="margin-top:14px">Step-by-step Process (practical overview)</h3>
+    <ol class="step-list">
+      <li><strong>Collection & Sorting:</strong> Only thermoplastic materials (clean and uncontaminated) are accepted. PVC and chlorinated plastics are avoided in demonstration units because they release hazardous compounds when heated.</li>
+      <li><strong>Shredding:</strong> Plastics are shredded into small flakes (5–20 mm). Uniform size improves heat transfer and process stability.</li>
+      <li><strong>Drying:</strong> Any moisture is removed because water can reduce heating efficiency and produce steam that affects vapor composition.</li>
+      <li><strong>Loading & Airlock:</strong> Material is introduced via an airlock or sealed feed to keep oxygen out of the reactor.</li>
+      <li><strong>Heating:</strong> The reactor is heated to the target temperature slowly and uniformly. Temperature sensors and safety cut-offs protect the system.</li>
+      <li><strong>Thermal Cracking:</strong> Polymer chains break, producing vapors that are routed away from the reactor into the condensation train.</li>
+      <li><strong>Condensation & Separation:</strong> Vapors cool in condensers; heavier liquids collect as pyrolysis oil while gases are either combusted for heat or purified.</li>
+      <li><strong>Residue Handling:</strong> Char/solid residue is cooled and removed periodically in a safe, sealed manner.</li>
+    </ol>
+
+    <div class="note">
+      <strong>Important safety note:</strong> Industrial pyrolysis involves high temperatures and potentially toxic compounds; for demonstrations use model diagrams or simulated units. Never run an unsupervised high-temperature pyrolysis reactor without certified engineering controls and trained operators.
+    </div>
+
+    <h3 style="margin-top:12px">Why pyrolysis is useful (short)</h3>
+    <div class="body-text">
+      Pyrolysis helps to convert non-biodegradable plastic waste into energy carriers and useful products. At scale, it reduces landfill volume, recovers energy from waste, and can provide feedstock for fuel or industrial chemicals. For community or state-level projects, the goal is to demonstrate the concept, emphasize safe handling, and situate pyrolysis as one part of a larger circular economy — combined with collection, sorting, and downstream processing.
+    </div>
+
+    <div style="margin-top:12px" class="highlight">Key outputs: pyrolysis oil (liquid fuel), non-condensable gas (for process heat), and carbon residue (char).</div>
+  </article>
+
+  <!-- Biogas Card -->
+  <article class="card" id="biogas">
+    <h2>Biogas Converter — How Organic Waste Becomes Fuel & Fertilizer</h2>
+    <div class="sub">A practical explanation of anaerobic digestion for your project display</div>
+
+    <div class="section-intro">A biogas converter (anaerobic digester) uses natural microbial processes to transform organic waste into methane-rich biogas and nutrient-rich digestate. It is a low-tech, high-impact solution for managing food and garden wastes while producing renewable energy and organic fertilizer.</div>
+
+    <div class="body-text">
+      The biogas converter works by placing organic waste into a sealed, oxygen-free vessel where specialized bacteria (anaerobes) digest the material over days to weeks. The digestion process occurs in several overlapping biological stages: hydrolysis (large molecules are broken into soluble components), acidogenesis (formation of volatile acids), acetogenesis (conversion to acetate), and methanogenesis (production of methane and carbon dioxide). Under controlled temperatures — typically mesophilic (around 35–40°C) for small digesters — these microbial communities steadily convert organic matter into biogas composed primarily of methane (CH₄) and carbon dioxide (CO₂), with trace gases present as well.
+    </div>
+
+    <h3 style="margin-top:14px">Operational Steps (practical)</h3>
+    <ol class="step-list">
+      <li><strong>Collection & Preprocessing:</strong> Collect kitchen scraps, vegetable peelings, and garden clippings. Avoid large bones, oils in excess, and inorganic materials. Shredding or mixing improves uniformity.</li>
+      <li><strong>Loading:</strong> Feed the organic material into the digester tank. Many small systems use a fixed batch or continuous feed design.</li>
+      <li><strong>Sealing & Retention:</strong> The digester is sealed to create anaerobic conditions. Retention time (how long material stays inside) depends on feedstock and temperature — generally 15–60 days.</li>
+      <li><strong>Microbial Breakdown:</strong> Microbes progressively convert solids to gases. Monitoring pH, temperature, and agitation (if available) helps maintain stable digestion.</li>
+      <li><strong>Biogas Collection:</strong> Gas is collected in an upper dome, flexible balloon, or gas-holder. Typical biogas contains about 50–70% methane when digestion is efficient.</li>
+      <li><strong>Gas Use & Cleaning:</strong> Raw biogas may be used directly for cooking or heating. For engine use or long-term storage, simple scrubbing (removal of H₂S and moisture) and filtration improve gas quality.</li>
+      <li><strong>Digestate Handling:</strong> The remaining slurry is a nutrient-rich fertilizer (digestate). It should be cooled and cured before application to soil.</li>
+    </ol>
+
+    <div class="note">
+      <strong>Practical tip:</strong> Keep the digester warm (insulate or place in a sheltered location), maintain a balanced feed (avoid too much oily or acidic waste), and ensure simple safety measures for gas use.
+    </div>
+
+    <h3 style="margin-top:12px">Environmental and Social Benefits</h3>
+    <div class="body-text">
+      Biogas systems reduce methane emissions from uncontrolled decomposition in landfills, produce renewable energy that can displace fossil fuels, and create a valuable soil conditioner that returns nutrients to local agriculture. For schools and communities, a small digester is an excellent demonstration of circular economy principles: it turns “waste” into energy and fertilizer while teaching microbiology, chemistry, and sustainable engineering in a hands-on way.
+    </div>
+
+    <div style="margin-top:12px" class="highlight">Key outputs: biogas (mainly CH₄ + CO₂) for cooking/heating, and digestate (organic fertilizer).</div>
+  </article>
+
+  <footer>
+    <div>Use these writeups directly on your project website or print them for presentation boards. If you want these as separate printable posters (PDF) or expanded further with diagrams and safety checklists, I can generate those too.</div>
+  </footer>
+</div>
+</body>
+</html>
+
+
+<body>
+<h1>♻️ ECO BIN — Smart Segregation Flow</h1>
+<div class="flowchart">
+  <div class="box">Start → Detect Object (Ultrasonic Sensor)</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Read Moisture Sensor → Check Wet/Dry</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">If Wet → Organic Waste Bin</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">If Dry → IR Sensor Detects Plastic or Metal</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Servo Rotates → Directs Waste</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Display on LCD + LED Indication</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">End (Ready for Next Item)</div>
+</body>
+
+
+
+<body>
+<h1>💰 METAL TO MONEY MACHINE Flow</h1>
+<div class="flowchart">
+  <div class="box">Start → User Inserts Object</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Metal Sensor Detects Conductivity</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">If Metal → Accept Object</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Servo or Gate Opens → Collects Metal</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Microcontroller Credits Digital Coin / Points</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">If Not Metal → Buzzer & Rejection Slot</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Display: “Insert Metal to Earn”</div>
+</body>
+
+
+
+<body>
+<h1>🔥 PLASMOLYSIS OF PLASTIC Process Flow</h1>
+<div class="flowchart">
+  <div class="box">Start → Collect Segregated Plastic</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Shred Plastic into Small Pieces</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Feed into Plasmolysis Chamber</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">High Temp (450°C+) → Breaks Polymer Chains</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Gaseous Hydrocarbon Vapors Form</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Condense Vapors → Produce Synthetic Fuel</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Collect Residue for Safe Disposal</div>
+</body>
+
+
+
+<body>
+<h1>🌿 BIOGAS CONVERTER Process Flow</h1>
+<div class="flowchart">
+  <div class="box">Start → Collect Organic Waste</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Feed into Anaerobic Digester</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Microbial Breakdown (No Oxygen)</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Produce Methane (CH₄) + CO₂</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Separate Biogas → Use for Energy</div>
+  <div class="arrow">⬇️</div>
+  <div class="box">Leftover Slurry → Used as Compost</div>
+</body>
+
+
+
+
+    <!-- Deep dive / code snippet area -->
+    <section class="card" style="margin-top:14px">
+      <h3>Deep dive — Wiring, Code & Calibration</h3>
+      <div class="code-block">
+<pre><strong>Wiring (Arduino UNO)</strong>
+Trig: D9 Echo: D8 (HC-SR04)
+IR OUT: A1
+MOIST AO: A0
+Servo1: D10 Servo2: D11
+LCD I2C: SDA A4, SCL A5
+LEDs: D6 (G), D7 (Y), D13 (R)
+Power: 5V external for servos; common GND</pre>
+      </div>
+      <p style="color:var(--muted)">Calibration: open Serial Monitor @ 9600 and test sample items. Set moisture threshold ~700 and IR threshold ~500 and tune to your sensors.</p>
+    </section>
+
+    <footer>Prepared for State-level Science Exhibition • E.C.O. B.I.N. — Smart Waste and Conversion Systems</footer>
+  </main>
+</div>
+
+<script>
+  // 3D tilt for model
+  const model = document.getElementById('binModel');
+  const wrap = document.getElementById('modelWrap');
+  wrap.addEventListener('mousemove', (e)=>{
+    const r = wrap.getBoundingClientRect();
+    const cx = r.left + r.width/2;
+    const cy = r.top + r.height/2;
+    const dx = (e.clientX - cx)/(r.width/2);
+    const dy = (e.clientY - cy)/(r.height/2);
+    const ry = dx*12; const rx = -dy*10;
+    model.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(-6deg)`;
+  });
+  wrap.addEventListener('mouseleave', ()=> model.style.transform = 'rotateX(18deg) rotateY(-14deg)');
+
+  // Button actions: scroll to sections smoothly
+  document.getElementById('btnEco').addEventListener('click', ()=> {
+    document.getElementById('eco').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('btnMetal').addEventListener('click', ()=> {
+    document.getElementById('metal').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('btnPyro').addEventListener('click', ()=> {
+    document.getElementById('pyro').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  // Simple anchor scrolling function (used earlier code)
+  function scrollToSection(id){
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // copy utility
+  function copyText(txt){
+    navigator.clipboard?.writeText(txt).then(()=> alert('Copied to clipboard'));
+  }
+</script>
+</body>
+</html>
+
+    <h2>Welcome to the Smart Waste Dashboard</h2>
+    <p>This version is loaded only after correct login ✅</p>
+    <div class="card">
+      <h3>Eco Bin</h3>
+      <p>Smart sorting system using sensors and servo-controlled flaps.</p>
+    </div>
+    <div class="card">
+      <h3>Metal-to-Money</h3>
+      <p>Detects metallic waste and rewards recyclers automatically.</p>
+    </div>
+    <div class="card">
+      <h3>Plastic Plasmolysis</h3>
+      <p>Safe demonstration of plastic-to-fuel pyrolysis process.</p>
+    </div>
+    <div class="card">
+      <h3>Organic Biogas</h3>
+      <p>Organic waste conversion into methane gas and fertilizer.</p>
+    </div>
+    <footer>Prepared for Zonal Level Science Exhibition • ECO BIN Project</footer>
+  </main>
+  <!-- END MAIN SITE -->
+</div>
+
+<script>
+// LOGIN SCRIPT
+function login(){
+  const u=document.getElementById("user").value.trim();
+  const p=document.getElementById("pass").value.trim();
+  const err=document.getElementById("errorMsg");
+
+  if(u==="admin" && p==="eco123"){
+    document.getElementById("loginPage").style.display="none";
+    document.getElementById("mainSite").style.display="block";
+    window.scrollTo(0,0);
+  }else{
+    err.textContent="❌ Incorrect username or password.";
+  }
+}
+</script>
+</body>
+</html>
